@@ -46,9 +46,9 @@ namespace MobileBank
                         userInfo = login.FindeUser();
                         cardInfo = login.FindCard(userInfo.Id);
 
-                        PhoneChargin = new PhoneCharging(balanceUpdater, userRequest, userInfo.Id);
+                        PhoneChargin = new PhoneCharging(balanceUpdater, cardRequest, userRequest, userInfo.Id);
 
-                        moneyTransfare = new MoneyTransfare(cardRequest, userRequest, balanceUpdater, userInfo);
+                        moneyTransfare = new MoneyTransfare(cardRequest, userRequest, balanceUpdater, userInfo.Id);
                         break;
 
                     case 2:

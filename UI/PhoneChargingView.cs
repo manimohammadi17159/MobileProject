@@ -1,12 +1,14 @@
-﻿namespace MobileBank.UI
+﻿using System.Reflection;
+
+namespace MobileBank.UI
 {
     internal class PhoneChargingView
     {
 
         public static decimal SelectItem()
         {
-        
-            int[] CreditItem = new int[5] {1000, 2000, 3000, 5000, 10000 };
+
+            int[] CreditItem = new int[5] { 1000, 2000, 3000, 5000, 10000 };
             int index = 5;
             decimal result;
 
@@ -62,6 +64,23 @@
 
 
         }
+        public static bool CheckBalance(decimal balance, decimal ammount)
+        {
 
+            if (balance < ammount)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"inventory is low!\nYou can get your card balance from main page");
+                Console.ResetColor();
+                Console.ReadKey();
+                return false;
+            }
+            else
+            {
+                return true;
+
+            }
+
+        }
     }
 }

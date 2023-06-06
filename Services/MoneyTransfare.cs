@@ -1,7 +1,5 @@
-﻿using MobileBank.Common;
-using MobileBank.Common.Interface;
+﻿using MobileBank.Common.Interface;
 using MobileBank.Common.Model;
-using MobileBank.DataAccess;
 using MobileBank.UI;
 
 
@@ -12,34 +10,34 @@ namespace MobileBank.Services
         private ICardRequest _cardRequest;
         private IBalanceUpdater _balanceUpdater;
         private IUserRequest _userRequest;
-        private User _user;
-        private CardInfo _card;
+        private string _userId;
         private decimal _newBalance;
-        public MoneyTransfare(ICardRequest cardRequest,IUserRequest userRequest ,IBalanceUpdater balanceUpdater, User user)
+        public MoneyTransfare(ICardRequest cardRequest, IUserRequest userRequest, IBalanceUpdater balanceUpdater, string userId)
         {
             _cardRequest = cardRequest;
             _balanceUpdater = balanceUpdater;
             _userRequest = userRequest;
-            _user = user;
-
+            userId = _userId;
         }
 
         public decimal StartTranfare()
         {
-            CardInfo cardInfo = new();
-            User userInfo = new();
-            
-            cardInfo = Destinationcard();
+            CardInfo card1 = _cardRequest.FindCardWithId(_userId);
+            CardInfo card2 = new();
+            User user2Info = new();
+            _cardRequest.FindCardWithId(_userId);
 
-            userInfo = _userRequest.FindUserWithId(cardInfo.Id);
+            card2 = Destinationcard();
 
-            TransfareView.ShowInfo(userInfo.Name, userInfo.Lastname, cardInfo.CardNumber);
+            user2Info = _userRequest.FindUserWithId(card2.Id);
 
-            decimal ammount = TransfareView.CheckTransfare(_card.Balance);
+            TransfareView.ShowInfo(user2Info.Name, user2Info.Lastname, card2.CardNumber);
 
-            Transfare(_user.Id, userInfo.Id, ammount);
+            decimal ammount = TransfareView.CheckTransfare(card1.Balance);
 
-            _newBalance = _card.Balance - ammount;
+            Transfare(_userId, user2Info.Id, ammount);
+
+            _newBalance = card1.Balance - ammount;
 
             TransfareView.TransfareSuccessful();
 
@@ -82,11 +80,11 @@ namespace MobileBank.Services
             _balanceUpdater.BalanceIncreaser(Id2, amount);
         }
 
-        private decimal CheckTransfare(decimal balance) 
+        private decimal CheckTransfare(decimal balance)
         {
             decimal result;
-            result = TransfareView.CheckTransfare(balance);     
-            
+            result = TransfareView.CheckTransfare(balance);
+
             return result;
         }
     }

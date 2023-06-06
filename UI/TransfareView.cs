@@ -48,7 +48,7 @@
             Console.ReadKey();
 
         }
-        public static decimal CheckTransfare(decimal balance)// Check tha balance that amount was not biger
+        public static decimal CheckTransfare(decimal balance)// Check the balance that amount be biger
         {
             bool needAsk = true;
             decimal result = 0;

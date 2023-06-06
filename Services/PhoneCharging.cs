@@ -1,5 +1,6 @@
 ﻿using MobileBank.Common.Interface;
 using MobileBank.Common.Model;
+using MobileBank.DataAccess;
 using MobileBank.UI;
 
 namespace MobileBank.Services
@@ -9,27 +10,46 @@ namespace MobileBank.Services
         private IUserRequest _userRequest;
         private IBalanceUpdater _balanceUpdater;
         private string _userId;
-        public PhoneCharging(IBalanceUpdater balanceUpdater, IUserRequest userRequest, string userId)
+        private ICardRequest _cardRequest;
+        public PhoneCharging(IBalanceUpdater balanceUpdater,ICardRequest cardRequest ,IUserRequest userRequest, string userId)
         {
             _balanceUpdater = balanceUpdater;
             _userRequest = userRequest;
+            _cardRequest = cardRequest;
             _userId = userId;
         }
 
         public decimal BuyMobileCharge()
         {
-            User account = null;
+            User user = null;
+            CardInfo card = null;
+            
 
-            account = _userRequest.FindUserWithId(_userId);
+            user = _userRequest.FindUserWithId(_userId);
+            card = _cardRequest.FindCardWithId(_userId);
 
             decimal ammount = PhoneChargingView.SelectItem();
-            decimal newBalance;
 
-            PhoneChargingView.GetPhoneNumber(account.MobileNumber, ammount);
+            bool check = PhoneChargingView.CheckBalance(card.Balance, ammount);
 
-            newBalance = _balanceUpdater.BalanceDeductor(_userId, ammount);///
+            if (check == true)
+            {
+                decimal newBalance;
 
-            return newBalance;
+                PhoneChargingView.GetPhoneNumber(user.MobileNumber, ammount);
+
+                newBalance = _balanceUpdater.BalanceDeductor(_userId, ammount);
+
+                return newBalance;
+            }
+            else
+            {
+                return card.Balance;
+            }
+           
         }
+
+
+
     }
 }

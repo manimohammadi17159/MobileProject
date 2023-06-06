@@ -46,6 +46,7 @@ namespace MobileBank.DataAccess
             {
                 result = new CardInfo()
                 {
+                    Id = reader.GetString(0),
                     CardNumber = reader.GetString(1),
                     Balance = reader.GetDecimal(2),
 
