@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\OneDrive\\Desktop\\MobileBank.1\\MobileBank.csproj": {}
+    "D:\\Dev\\Prj\\Repos\\ManiMohammad\\MobileProject\\MobileBank.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\OneDrive\\Desktop\\MobileBank.1\\MobileBank.csproj": {
+    "D:\\Dev\\Prj\\Repos\\ManiMohammad\\MobileProject\\MobileBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\OneDrive\\Desktop\\MobileBank.1\\MobileBank.csproj",
+        "projectUniqueName": "D:\\Dev\\Prj\\Repos\\ManiMohammad\\MobileProject\\MobileBank.csproj",
         "projectName": "MobileBank",
-        "projectPath": "C:\\Users\\ASUS\\OneDrive\\Desktop\\MobileBank.1\\MobileBank.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\OneDrive\\Desktop\\MobileBank.1\\obj\\",
+        "projectPath": "D:\\Dev\\Prj\\Repos\\ManiMohammad\\MobileProject\\MobileBank.csproj",
+        "packagesPath": "C:\\Users\\Mirmostafa\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev\\Prj\\Repos\\ManiMohammad\\MobileProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Mirmostafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.4.23260.5\\RuntimeIdentifierGraph.json"
         }
       }
     }
