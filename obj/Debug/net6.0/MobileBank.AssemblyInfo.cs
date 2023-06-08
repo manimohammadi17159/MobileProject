@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MobileBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7752074358b3be65ca13fe27cfa7afe940b8e50d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MobileBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MobileBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
