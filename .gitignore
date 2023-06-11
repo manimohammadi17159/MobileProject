@@ -328,4 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/.vs/MobileBank/v17/.suo
+/.vs/
+.vs/
+/.vs/MobileBank/v17/.futdcache.v2
