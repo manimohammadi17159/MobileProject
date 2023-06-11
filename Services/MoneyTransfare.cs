@@ -17,13 +17,17 @@ namespace MobileBank.Services
             _cardRequest = cardRequest;
             _balanceUpdater = balanceUpdater;
             _userRequest = userRequest;
-            userId = _userId;
+            //? Inverted.
+            //x userId = _userId;
+            _userId = userId;
         }
 
         public decimal StartTranfare()
         {
             CardInfo card1 = _cardRequest.FindCardWithId(_userId);
-            CardInfo card2 = new();
+            //! Initialization is not required.
+            //x CardInfo card2 = new();
+            CardInfo card2;
             User user2Info = new();
             _cardRequest.FindCardWithId(_userId);
 
@@ -37,6 +41,7 @@ namespace MobileBank.Services
 
             Transfare(_userId, user2Info.Id, ammount);
 
+            //? Why should `_newBalance` be kept? It can be removed.
             _newBalance = card1.Balance - ammount;
 
             TransfareView.TransfareSuccessful();
@@ -76,16 +81,18 @@ namespace MobileBank.Services
 
         private void Transfare(string Id1, string Id2, decimal amount)// user1 is origin card and user2 is destination card
         {
+            //! Id1 is always _userId. So it can be removed. 
             _balanceUpdater.BalanceDeductor(Id1, amount);
             _balanceUpdater.BalanceIncreaser(Id2, amount);
         }
 
-        private decimal CheckTransfare(decimal balance)
-        {
-            decimal result;
-            result = TransfareView.CheckTransfare(balance);
+        //! Never used method. Can be removed.
+        //private decimal CheckTransfare(decimal balance)
+        //{
+        //    decimal result;
+        //    result = TransfareView.CheckTransfare(balance);
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

@@ -16,9 +16,10 @@ namespace MobileBank.DataAccess
         {
             User result = null;
             string query = $"Select * From UserInfo Where Username= '{userName}'";
-            SqlDataReader reader = null;
 
-            reader = _dbHelper.ExecuteQuery(query);
+            //! Not required
+            //x SqlDataReader reader = null;
+            var reader = _dbHelper.ExecuteQuery(query);
 
             if (reader.Read())
             {
@@ -33,6 +34,8 @@ namespace MobileBank.DataAccess
                 };
             }
             reader.Close();
+            //! And dispose it
+            reader.Dispose();
 
             return result;
         }
@@ -62,6 +65,7 @@ namespace MobileBank.DataAccess
         }
         public void InsertNewUser(User newUser)
         {
+            //! It would be better to use `@`, instead of `+` to concatenate string.
             string query = $"Insert INTO UserInfo(Id,Username, Password, Name, Lastname, MobileNumber)" +
                            $" Values('{newUser.Id}','{newUser.UserName}','{newUser.Password}'," +
                            $"'{newUser.Name}','{newUser.Lastname}','{newUser.MobileNumber}')";

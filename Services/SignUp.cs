@@ -60,6 +60,7 @@ namespace MobileBank.Services
                 result.Third = num1.PadLeft(4, '0');
                 result.Fourth = num2.PadLeft(4, '0');
 
+                //!? This is incorrect. Why is `.ToString()` being called in this context? It always returns the same value.
                 var check = _cardRequest.FindCard(result.ToString());// If we find new cardnumber means that isnt uniqe
 
                 if (check == null)
@@ -69,16 +70,21 @@ namespace MobileBank.Services
                 else { needCreating = true; }
             }
 
+            //!? Invalid, again.
             return result.ToString(); //Convert all the properties to a string cardnumber 
         }
 
         private bool CheckBeUniqe(string user)//Check user be uniqe
         {
+            //! Not a good idea. Gathering all the information from DB to Service layer, requites alot of memory
             var check = _userRequest.FindUser(user);
 
-            if (check != null) return false;
+            //! Simplification
+            //if (check != null) return false;
 
-            else return true;
+            //else return true;
+
+            return check == null;
         }
         private string CreateId()
         {

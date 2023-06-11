@@ -9,7 +9,9 @@ namespace MobileBank.Services
     {
         private IUserRequest _userRequest;
         private ICardRequest _cardRequest;
-        User _user;
+
+        //! _user is assigned but never used.
+        //x User _user;
         public Login(IUserRequest userRequest, ICardRequest cardRequest)
         {
             _userRequest = userRequest;
@@ -22,10 +24,12 @@ namespace MobileBank.Services
 
             while (needAsling == true)
             {
+                //!? Architectural issue: SERVICE SHOULD NEVER CALL IU METHODS. UI must be in a higher lever.
                 var user = LoginView.Asking();
 
                 result = _userRequest.FindUser(user.user);
 
+                //! 💀 Very Important: Password must be hashed 💀
                 if (result != null && result.Password == user.pass)
                 {
                     needAsling = false;
@@ -33,7 +37,9 @@ namespace MobileBank.Services
                 }
                 else
                 {
-                    _user = result;
+                    //! _user is assigned but never used.
+                    //x _user = result;
+                    //!? Architectural issue: SERVICE SHOULD NEVER CALL IU METHODS. UI must be in a higher lever.
                     LoginView.DidntFound();
                 }
             }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MobileBank.Common.Model
 {
-    internal class CardInfo
+    //! Models in Common project must be public
+    //x internal class CardInfo
+    public class CardInfo
     {
         public string Id { get; set; }
         public string CardNumber { get; set; }
