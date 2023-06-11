@@ -18,6 +18,7 @@ namespace MobileBank
 
             bool needAsking = true;
 
+            //! IoC is required.
             IDbHelper dbHelper = new DbHelper();
 
             IUserRequest userRequest = new UserRequest(dbHelper);
@@ -44,6 +45,7 @@ namespace MobileBank
                 {
                     case 1:
                         userInfo = login.FindeUser();
+                        //? What if not found ?
                         cardInfo = login.FindCard(userInfo.Id);
 
                         PhoneChargin = new PhoneCharging(balanceUpdater, cardRequest, userRequest, userInfo.Id);
@@ -68,6 +70,7 @@ namespace MobileBank
                 switch (ProgramView.ShowItems())
                 {
                     case 1:
+                        //? What if `cardInfo` is empty ?
                         ProgramView.ShowAccountBalance(cardInfo.Balance);
                         break;
 

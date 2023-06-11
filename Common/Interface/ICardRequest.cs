@@ -12,6 +12,8 @@ namespace MobileBank.Common.Interface
     internal interface ICardRequest
     {
         public CardInfo FindCard(string cardNumber);
+
+        //! FindCard<By>Id
         public CardInfo FindCardWithId(string Id);
         public void InsertNewCard(CardInfo cardInfo);
         public void UpdateBalance(string id, decimal newBalance);

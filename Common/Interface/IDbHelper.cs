@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileBank.Common.Interface
 {
-    internal interface IDbHelper
+    internal interface IDbHelper : IDisposable
     {
         public int ExecuteNonQuery(string query);
 

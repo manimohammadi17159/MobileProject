@@ -10,9 +10,11 @@
             Console.Write("Enter username: ");
             info.user = Console.ReadLine();
 
+            //! Password must be hidden.
             Console.Write("Enter password: ");
             info.pass = Console.ReadLine();
 
+            //? Why?
             Thread.Sleep(TimeSpan.FromSeconds(3));
 
             return info;

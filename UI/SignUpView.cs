@@ -32,7 +32,9 @@ namespace MobileBank.UI
 
             if (result.Name == null || result.Lastname == null || result.MobileNumber == null)
             {
-                GetUserInfo();
+                //! Invalid
+                //x GetUserInfo();
+                return GetUserInfo();
             }
             return result;
 

@@ -63,8 +63,10 @@ namespace MobileBank.DataAccess
         //}
 
         //! Optimizing code
+        // Tip: The return value must be nullable
         public CardInfo FindCard(string card)
         {
+            //! `card` must be checked to be not null. (Important)
             // The `using` statement ensures that the `DataReader` is closed and disposed when it is no longer needed.
             using var reader = _dbHelper.ExecuteQuery($"Select * From CardInfo Where CardNumber= '{card}' OR 1=1; --'");
 

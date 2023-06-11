@@ -21,7 +21,7 @@ namespace MobileBank.UI
 
                 }
                 Console.Write("Select: ");
-                index = Convert.ToInt32(Console.ReadLine()) - 1;
+                index = Convert.ToInt32(Console.ReadLine()) - 1; // Console.ReadKey is more suitable.
             }
             result = CreditItem[index] + CreditItem[index] * 9 / 100;
 
@@ -44,7 +44,7 @@ namespace MobileBank.UI
                 if (userRequest.ToLower() == "yes")
                 {
 
-                    Console.WriteLine($"{mobile} Charged {ammount} Tomans");
+                    Console.WriteLine($"{mobile} Charged {ammount} Tomans"); //? Where is the charge on this phone number?
                     needAsk = false;
                     Console.ReadKey();
                 }
@@ -55,7 +55,7 @@ namespace MobileBank.UI
                     Console.Write("Enter your mobile number:");
                     string number = Console.ReadLine();
 
-                    Console.WriteLine($"{number} charged {ammount} Tomans");
+                    Console.WriteLine($"{number} charged {ammount} Tomans"); //? Where is the charge on this phone number?
                     needAsk = false;
 
                     Console.ReadKey();

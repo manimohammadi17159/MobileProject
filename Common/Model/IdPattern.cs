@@ -9,6 +9,7 @@ namespace MobileBank.Common.Model
     internal class IdPattern
     {
         //! CS8618 - Non-nullable variable must contain a non-null value when exiting constructor. Consider declaring it as nullable.
+        //! Why isn't it an integer variable?
         public string? Year { get; set; }
         public string Mounth { get; set; }
         public string Day { get; set; }

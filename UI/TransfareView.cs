@@ -11,7 +11,7 @@
 
             Console.Write("Enter card number: ");
             result = Console.ReadLine();
-            result.ToCharArray();
+            result.ToCharArray(); //? Why is this ?
 
             if (result.Length != 16)
             {
@@ -50,6 +50,7 @@
         }
         public static decimal CheckTransfare(decimal balance)// Check the balance that amount be biger
         {
+            //! Not required.
             bool needAsk = true;
             decimal result = 0;
 
@@ -63,7 +64,8 @@
                 if (result < balance)
                 {
                     return result;
-                    needAsk = false;
+                    //! Remove unreachable code.
+                    //x needAsk = false;
                 }
                 else
                 {
